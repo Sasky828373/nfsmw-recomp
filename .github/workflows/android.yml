@@ -42,9 +42,9 @@ jobs:
           ninja --version
           java -version
 
-      - name: Build Android stub APK
+      - name: Build Android NFSMW APK
         run: |
-          python tools/build.py --target android --stub
+          python tools/build.py --target android
 
       - name: Find APK
         if: always()
@@ -55,7 +55,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: nfsmw-android-stub
+          name: nfsmw-android
           path: |
             build/android/app/build/outputs/apk/**/*.apk
             **/build/outputs/apk/**/*.apk
